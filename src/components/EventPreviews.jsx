@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
-function checkIfOpen(event) {
+let checkIfOpen = (event) => {
   const today = new Date();
   const open = new Date(event.open);
   const deadline = new Date(event.deadline);
