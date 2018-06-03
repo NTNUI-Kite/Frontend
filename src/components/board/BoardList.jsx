@@ -31,7 +31,7 @@ const BoardList = props => (<Paper>
           <TableRowColumn>{member.name}</TableRowColumn>
           <TableRowColumn>{member.title}</TableRowColumn>
           <TableRowColumn>{member.email}</TableRowColumn>
-          <TableRowColumn>{member.phoneNumber}</TableRowColumn>
+          <TableRowColumn>{member.phone}</TableRowColumn>
         </TableRow>
       ))
       }
