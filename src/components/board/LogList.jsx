@@ -16,7 +16,7 @@ const LogList = props => (
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
         {
-          props.logEntries.map(entry => (
+          props.logEntries.reverse().map(entry => (
             <TableRow key={entry.id}>
               <TableRowColumn>{entry.name}</TableRowColumn>
               <TableRowColumn>{entry.action}</TableRowColumn>
