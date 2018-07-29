@@ -19,9 +19,6 @@ const NavLinks = props => (
     <Link className="navLink" to="/about">
       <ToolbarTitle style={style} text="About us" />
     </Link>
-    <Link className="navLink" to="/images">
-      <ToolbarTitle style={style} text="Images" />
-    </Link>
     {props.boardMember
       ? <Link className="navLink" to="/board"> <ToolbarTitle style={style} text="Board" /> </Link>
       : <div />}
