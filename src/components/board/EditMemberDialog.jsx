@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
 import BoardActions from '../../actions/BoardActions';
 
-class EditUserDialog extends Component {
+class EditMemberDialog extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,17 +43,10 @@ class EditUserDialog extends Component {
       phone: this.state.phone,
       email: this.state.email,
       title: this.state.title,
+      board_member: this.props.userInfo.board_member,
     };
 
-    const newMember =  Object.assign({}, userObject);
-
-    if (newMember.board_member || (newMember.board_member === 1)) {
-      newMember.board_member = false;
-    } else {
-      newMember.board_member = true;
-    }
-
-    BoardActions.updateMember(newMember);
+    BoardActions.updateMember(userObject);
     this.props.toggle();
   }
 
@@ -88,7 +81,7 @@ class EditUserDialog extends Component {
     return (
       <div>
         <Dialog
-          title="Member profile"
+          title="Edit member"
           actions={actions}
           modal={false}
           open={this.props.open}
@@ -128,7 +121,7 @@ class EditUserDialog extends Component {
   }
 }
 
-EditUserDialog.propTypes = {
+EditMemberDialog.propTypes = {
   toggle: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   userInfo: PropTypes.shape({
@@ -141,4 +134,4 @@ EditUserDialog.propTypes = {
   }).isRequired,
 };
 
-export default EditUserDialog;
+export default EditMemberDialog;
