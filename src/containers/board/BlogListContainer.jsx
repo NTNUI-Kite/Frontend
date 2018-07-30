@@ -56,7 +56,7 @@ class BlogListContainer extends Component {
   }
 
   onEditClick(id) {
-    this.props.history.push(`/board/editEvent/${id}`);
+    this.props.history.push(`/board/postById/${id}`);
   }
 
   onViewClick(id) {
@@ -87,7 +87,7 @@ class BlogListContainer extends Component {
   render() {
     return (
       <Paper className="baseContainer">
-        <Button label="Lag ny event" onClick={this.onNewEventClick} />
+        <Button label="Lag ny bloggpost" onClick={this.onNewEventClick} />
         <Table
           selectable={false}
         >

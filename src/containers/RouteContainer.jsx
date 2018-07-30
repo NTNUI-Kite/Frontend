@@ -22,6 +22,7 @@ import EventListContainer from '../containers/board/EventListContainer';
 import MemberListContainer from '../containers/board/MemberListContainer';
 import EventInfoContainer from '../containers/board/EventInfoContainer';
 import BlogListContainer from '../containers/board/BlogListContainer';
+import EditBlogContainer from '../containers/board/EditBlogContainer';
 import ProfileContainer from '../containers/ProfileContainer';
 
 const muiTheme = getMuiTheme({
@@ -59,6 +60,7 @@ const RouteContainer = () => (
               <PrivateRoute path="/board/event/:eventId" component={EventInfoContainer} />
               <PrivateRoute path="/board/memberlist" component={MemberListContainer} />
               <PrivateRoute path="/board/blog" component={BlogListContainer} />
+              <PrivateRoute path="/board/postById/:postId" component={EditBlogContainer} />
             </Switch>
           </div>
           <Footer />

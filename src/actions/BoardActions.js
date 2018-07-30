@@ -73,6 +73,21 @@ const Actions = {
         });
       });
   },
+  getPost: (id) => {
+    AuthorizedGetRequest(`/api/board/postById/${id}`)
+      .then((post) => {
+        AppDispatcher.dispatch({
+          actionType: BoardConstants.RECIEVE_POST,
+          post,
+        });
+      })
+      .catch((message) => {
+        AppDispatcher.dispatch({
+          actionType: BoardConstants.RECIEVE_POST_ERROR,
+          message,
+        });
+      });
+  },
   getEvents: () => AuthorizedGetRequest('/api/board/allevents')
     .then((events) => {
       AppDispatcher.dispatch({
