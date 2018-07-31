@@ -29,9 +29,7 @@ class BlogListContainer extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
-    this.onNewEventClick = this.onNewEventClick.bind(this);
-    this.onActiveToggle = this.onActiveToggle.bind(this);
-    this.onOpenToggle = this.onOpenToggle.bind(this);
+    this.onNewPostClick = this.onNewPostClick.bind(this);
     this.onEditClick = this.onEditClick.bind(this);
     this.onViewClick = this.onViewClick.bind(this);
   }
@@ -63,31 +61,17 @@ class BlogListContainer extends Component {
     this.props.history.push(`/board/event/${id}`);
   }
 
-  onNewEventClick() {
-    BoardActions.addNewEvent()
+  onNewPostClick() {
+    BoardActions.addNewPost()
       .then((res) => {
-        this.props.history.push(`/board/editEvent/${res.id}`);
+        this.props.history.push(`/board/postById/${res.id}`);
       });
-  }
-
-  onActiveToggle(event) {
-    const newEvent = Object.assign({}, event);
-    newEvent.is_active = !event.is_active;
-
-    BoardActions.updateEvent(newEvent);
-  }
-
-  onOpenToggle(event) {
-    const newEvent = Object.assign({}, event);
-    newEvent.is_open = !event.is_open;
-
-    BoardActions.updateEvent(newEvent);
   }
 
   render() {
     return (
       <Paper className="baseContainer">
-        <Button label="Lag ny bloggpost" onClick={this.onNewEventClick} />
+        <Button label="Lag ny bloggpost" onClick={this.onNewPostClick} />
         <Table
           selectable={false}
         >

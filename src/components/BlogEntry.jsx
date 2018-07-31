@@ -13,7 +13,7 @@ const BlogEntry = props => (
       <img alt="logo" src="http://kitingbarbados.com/images/album/1.jpg" />
     </CardMedia>
     <CardText>
-      {props.abstract}
+      <div dangerouslySetInnerHTML={{ __html: props.abstract }} />
     </CardText>
   </Card>
 );

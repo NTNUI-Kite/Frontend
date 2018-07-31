@@ -88,6 +88,30 @@ const Actions = {
         });
       });
   },
+  updatePost: (body) => {
+    AuthorizedPostRequest('/api/updatePost', body)
+      .then(() => {
+        AppDispatcher.dispatch({
+          actionType: BoardConstants.UPDATE_POST,
+          post: body,
+        });
+      })
+      .catch((message) => {
+        AppDispatcher.dispatch({
+          actionType: BoardConstants.UPDATE_POST_ERROR,
+          message,
+        });
+      });
+  },
+  addNewPost: () => new Promise((resolve, reject) => {
+    AuthorizedPostRequest('/api/board/addPost')
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((message) => {
+        reject(message);
+      });
+  }),
   getEvents: () => AuthorizedGetRequest('/api/board/allevents')
     .then((events) => {
       AppDispatcher.dispatch({

@@ -15,6 +15,8 @@ export default keyMirror({
   UPDATE__MEMBERS_ERROR: null,
   UPDATE_EVENT: null,
   UPDATE_EVENT_ERROR: null,
+  UPDATE_POST: null,
+  UPDATE_POST_ERROR: null,
   REMOVE_ATTENDEE: null,
   REMOVE_ATTENDEE_ERROR: null,
   ADD_ATTENDEE: null,

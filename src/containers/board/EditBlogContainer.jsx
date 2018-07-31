@@ -112,9 +112,9 @@ class EditBlogContainer extends Component {
       id: this.state.id,
       title: this.state.title,
       abstract: markup,
-      date: this.state.date,
+      date: dateToSQL(this.state.date),
     };
-    BoardActions.updateEvent(body);
+    BoardActions.updatePost(body);
     this.setState({
       showSnackbar: true,
       originalCapacity: this.state.capacity,

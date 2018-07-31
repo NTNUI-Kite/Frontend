@@ -135,6 +135,15 @@ BoardStore.dispatchToken = AppDispatcher.register((action) => {
       });
       BoardStore.emitChange();
       break;
+    case BoardConstants.UPDATE_POST:
+      post = post.map((ev) => {
+        if (post.id === action.post.id) {
+          return action.post;
+        }
+        return post;
+      });
+      BoardStore.emitChange();
+      break;
     case BoardConstants.REMOVE_ATTENDEE:
       event.signups = event.signups.filter(user => user !== action.user);
       BoardStore.emitChange();
