@@ -37,7 +37,7 @@ class BlogContainer extends Component {
     return (
       <div>
         {
-          this.state.posts.map(post => (
+          this.state.posts.slice(0).reverse().map(post => (
             <BlogEntry key={post.id} {...post} />
           ))
         }
