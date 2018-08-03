@@ -21,7 +21,7 @@ const PaperExampleSimple = () => (
           <p>Events</p>
         </Paper>
       </Link>
-      <Link to="">
+      <Link to="/board/blog">
         <Paper className="boardLinkItem" zDepth={1} >
           <BlogIcon className="boardLinkIcon" />
           <p>Blog</p>

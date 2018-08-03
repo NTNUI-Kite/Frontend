@@ -13,6 +13,8 @@ let events = [];
 
 let event = {};
 
+let post = {};
+
 const setBoardMembers = (newBoardMembers) => {
   boardMembers = newBoardMembers;
 };
@@ -29,7 +31,11 @@ const setMembers = (newMembers) => {
   members = newMembers;
 };
 
-/* eslint class-methods-use-this: ["error", { "exceptMethods": ["getBoardMembers", "getEvent", "getEvents", "getMembers"] }] */
+const setPost = (newPost) => {
+  post = newPost;
+}
+
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["getBoardMembers", "getEvent", "getEvents", "getPost", "getMembers"] }] */
 class BoardStoreClass extends EventEmitter {
   emitChange() {
     this.emit(CHANGE_EVENT);
@@ -50,8 +56,13 @@ class BoardStoreClass extends EventEmitter {
   getEvent() {
     return event;
   }
+
   getEvents() {
     return events;
+  }
+
+  getPost() {
+    return post;
   }
 
   getMembers () {
@@ -90,6 +101,15 @@ BoardStore.dispatchToken = AppDispatcher.register((action) => {
       BoardStore.emitChange();
       break;
 
+    case BoardConstants.RECIEVE_POST:
+      setPost(action.post);
+      BoardStore.emitChange();
+      break;
+
+    case BoardConstants.RECIEVE_POST_ERROR:
+      BoardStore.emitChange();
+      break;
+
     case BoardConstants.RECIEVE_MEMBERS:
       setMembers(action.members);
       BoardStore.emitChange();
@@ -112,6 +132,15 @@ BoardStore.dispatchToken = AppDispatcher.register((action) => {
           return action.event;
         }
         return ev;
+      });
+      BoardStore.emitChange();
+      break;
+    case BoardConstants.UPDATE_POST:
+      post = post.map((ev) => {
+        if (post.id === action.post.id) {
+          return action.post;
+        }
+        return post;
       });
       BoardStore.emitChange();
       break;
