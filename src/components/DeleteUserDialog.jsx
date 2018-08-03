@@ -12,16 +12,9 @@ class DeleteUserDialog extends Component {
       showSnackbar: false,
     };
 
-    this.handleChange = this.handleChange.bind(this);
     this.deleteUser = this.deleteUser.bind(this);
     this.cancelDialog = this.cancelDialog.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
-  }
-
-  handleChange({ target }) {
-    this.setState({
-      [target.name]: target.value,
-    });
   }
 
   componentWillReceiveProps(nextProps) {
