@@ -35,6 +35,16 @@ export default {
       });
   },
 
+  deleteUser: (userInfo) => {
+    AuthorizedPostRequest('/api/deleteUser', userInfo)
+      .then(() => {
+        AppDispatcher.dispatch({
+          actionType: AuthConstants.DELETE_USER,
+          deleteUser: true,
+        });
+      });
+  },
+
   getProfile: () => {
     AuthorizedGetRequest('/api/userProfile')
       .then((res) => {
