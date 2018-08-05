@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "http://api.ntnuikite.no",
+  "proxy": "api.ntnuikite.no",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "draft-js": "^0.10.1",
