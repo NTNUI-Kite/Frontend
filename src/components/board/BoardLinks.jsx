@@ -41,7 +41,7 @@ const PaperExampleSimple = () => (
       </Link>
     </div>
     <div>
-      <Link to="">
+      <Link to="" onClick={e => e.preventDefault()}>
         <Paper className="boardLinkItem" zDepth={1} >
           <HMSIcon className="boardLinkIcon" />
           <p>HMS</p>
@@ -53,13 +53,13 @@ const PaperExampleSimple = () => (
           <p>Documents</p>
         </Paper>
       </Link>
-      <Link to="">
+      <Link to="" onClick={e => e.preventDefault()}>
         <Paper className="boardLinkItem" zDepth={1} >
           <LessonIcon className="boardLinkIcon" />
           <p>Experiences</p>
         </Paper>
       </Link>
-      <Link to="">
+      <Link to="" onClick={e => e.preventDefault()}>
         <Paper className="boardLinkItem" zDepth={1} >
           <SettingsIcon className="boardLinkIcon" />
           <p>Settings</p>
