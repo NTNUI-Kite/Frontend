@@ -8,6 +8,8 @@ let isAuthenticated = false;
 
 let profile = {};
 
+let deleteUser = false;
+
 // eslint-disable-next-line no-undef
 if (localStorage.getItem('id_token')) {
   isAuthenticated = true;
@@ -48,8 +50,12 @@ const setProfile = (newProfile) => {
   profile = newProfile;
 }
 
+const setDeleteUser = (newDelete) => {
+  deleteUser = newDelete;
+}
+
 /* eslint class-methods-use-this:
-["error", { "exceptMethods": ["isAuthenticated", "getUser", "getJwt", "getRefreshJwt", "setJwt", "getProfile"] }] */
+["error", { "exceptMethods": ["isAuthenticated", "getUser", "getJwt", "getRefreshJwt", "setJwt", "getProfile", "getDeleteUser"] }] */
 class AuthStoreClass extends EventEmitter {
   emitChange() {
     this.emit(CHANGE_EVENT);
@@ -81,6 +87,10 @@ class AuthStoreClass extends EventEmitter {
       return JSON.parse(localStorage.getItem('profile'));
     }
     return {};
+  }
+
+  getDeleteUser() {
+    return deleteUser;
   }
 
   getRefreshJwt() {
@@ -120,6 +130,11 @@ AuthStore.dispatchToken = AppDispatcher.register((action) => {
 
     case AuthConstants.UPDATE_USER:
       updateUser(action.userInfo);
+      AuthStore.emitChange();
+      break;
+
+    case AuthConstants.DELETE_USER:
+      setDeleteUser(action.deleteUser);
       AuthStore.emitChange();
       break;
 

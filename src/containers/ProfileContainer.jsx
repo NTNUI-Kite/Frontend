@@ -5,6 +5,7 @@ import AuthActions from '../actions/AuthActions';
 
 import UserEventList from '../components/UserEventList';
 import UserInfoBox from '../components/UserInfoBox';
+import GDPRInfoBox from '../components/GDPRInfoBox';
 
 class ProfileContainer extends Component {
   constructor() {
@@ -47,6 +48,9 @@ class ProfileContainer extends Component {
       <div className="profileContainer">
         <UserEventList eventList={this.state.eventInfo} />
         <UserInfoBox userInfo={this.state.userInfo} />
+        <div>
+          <GDPRInfoBox userInfo={this.state.userInfo} />
+        </div>
       </div>
     );
   }
