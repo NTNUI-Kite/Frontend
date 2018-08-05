@@ -77,7 +77,7 @@ class EditUserDialog extends Component {
     return (
       <div>
         <Dialog
-          title="Are your information correct?"
+          title="Is your information correct?"
           actions={actions}
           modal={false}
           open={this.props.open}
