@@ -30,6 +30,7 @@ class SignupBox extends Component {
       comment: '',
       paymentInProgress: false,
       hasPaid: false,
+      isOpen: false,
     };
 
     this.toggleCar = this.toggleCar.bind(this);
@@ -38,11 +39,13 @@ class SignupBox extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
     this.setState({
       comment: nextProps.userInfo.comment,
       hasCar: (nextProps.userInfo.has_car === 1),
       userInfo: nextProps.userInfo,
       hasPaid: (nextProps.userInfo.has_paid === 1),
+      isOpen: nextProps.isOpen,
     });
   }
 
@@ -72,6 +75,8 @@ class SignupBox extends Component {
         </Paper>);
     }
 
+    const disableNotOpen = (this.props.hasSignedUp || !this.state.isOpen)
+
     return (
       <Paper className="signupBox">
         <TextField
@@ -82,16 +87,17 @@ class SignupBox extends Component {
           defaultValue={this.state.comment}
           onChange={this.handleChange}
           multiLine
-          disabled={this.props.hasSignedUp}
+          disabled={disableNotOpen}
         />
         <Checkbox
           label="Has car"
           checked={this.state.hasCar}
           onCheck={this.toggleCar}
-          disabled={this.props.hasSignedUp}
+          disabled={disableNotOpen}
         />
         <SignupButton
           {...this.props}
+          isOpen={this.state.isOpen}
           comment={this.state.comment}
           hasCar={this.state.hasCar}
           hasPaid={this.state.hasPaid}

@@ -28,8 +28,16 @@ class SignupButton extends Component {
     super();
     this.state = {
       openDialog: false,
+      isOpen: false,
     };
     this.toggleDialog = this.toggleDialog.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      isOpen: this.props.isOpen,
+      openDialog: false,
+    });
   }
 
   toggleDialog() {
@@ -85,6 +93,9 @@ class SignupButton extends Component {
           </div>
         );
       }
+    }
+
+    if (this.props.authenticated) {
       // If the user is not signed up
       const body = {
         eventId: this.props.eventId,
@@ -98,6 +109,7 @@ class SignupButton extends Component {
         </div>
       );
     }
+
     return (
       <div>
         <p>Not logged in</p>

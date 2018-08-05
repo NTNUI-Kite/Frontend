@@ -32,7 +32,7 @@ const EventPreviews = props => (
         {
           props.events.slice(0).reverse().map(event => (
             <tr className="eventPreview" key={event.id}>
-              <td className="eventTitle"><Link to={`/event/${event.id}`}>This is an really long title and its longer now</Link></td>
+              <td className="eventTitle"><Link to={`/event/${event.id}`}>{event.title}</Link></td>
               <td className="eventDate"><Link className="eventDate" to={`/event/${event.id}`}>{event.start.split('-')[2].substr(0, 2)}.-{event.end.split('-')[2].substr(0, 2)}. {'0-january-february-march-april-may-june-july-august-september-october-november-desember'.split('-')[parseInt(event.end.split('-')[1], 10)]}</Link></td>
               <td>
                 {checkIfOpen(event)}
