@@ -12,13 +12,16 @@
 }
 
 .registrationStatus {
-
   color: white;
   padding: 2px;
   text-align: center;
 }
 
-.registrationStatus.open {
+.registrationStatus .open {
+  background-color: #6FCF97;
+}
+
+.open {
   background-color: #6FCF97;
 }
 
