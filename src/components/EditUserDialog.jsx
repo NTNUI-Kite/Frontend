@@ -40,6 +40,7 @@ class EditUserDialog extends Component {
       name: this.state.name,
       phone: this.state.phone,
       email: this.state.email,
+      firstLogin: 1,
     };
 
     AuthActions.updateUser(userObject);
@@ -76,7 +77,7 @@ class EditUserDialog extends Component {
     return (
       <div>
         <Dialog
-          title="User profile"
+          title="Is your information correct?"
           actions={actions}
           modal={false}
           open={this.props.open}

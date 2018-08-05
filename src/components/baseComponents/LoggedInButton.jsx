@@ -24,6 +24,14 @@ class LoggedInButton extends Component {
     this.logout = this.logout.bind(this);
   }
 
+  componentDidMount() {
+    if (!this.props.userInfo.firstLogin) {
+      this.setState({
+        showEdit: true,
+      });
+    }
+  }
+
   logout() {
     AuthActions.logUserOut();
     this.props.history.push('/');
