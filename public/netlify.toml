@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://46.101.245.6/:splat"
+  to = "https://api.ntnuikite.no/:splat"
   status = 200
   force = true
   [redirects.headers]
