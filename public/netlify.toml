@@ -3,3 +3,5 @@
   to = "https://api.ntnuikite.no/:splat"
   status = 200
   force = true
+  [redirects.headers]
+    X-From = "Emil"
