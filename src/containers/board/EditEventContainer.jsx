@@ -93,6 +93,7 @@ class EditEventContainer extends Component {
       isActive: (event.is_active === 1),
       isOpen: (event.is_open === 1),
       hasRecievedData: true,
+      img_url: event.img_url,
     };
 
     this.setState(body);
@@ -156,6 +157,7 @@ class EditEventContainer extends Component {
       price: this.state.price,
       is_active: this.state.isActive,
       is_open: this.state.isOpen,
+      img_url: this.state.img_url,
     };
     BoardActions.updateEvent(body);
     this.setState({
@@ -196,6 +198,7 @@ class EditEventContainer extends Component {
           <DatePicker className="fieldItem" name="deadline" floatingLabelText="frist-dato" mode="landscape" value={this.state.deadline} onChange={this.handleDateDeadlineChange} />
           <DatePicker className="fieldItem" name="open" floatingLabelText="Åpen-dato" mode="landscape" value={this.state.open} onChange={this.handleDateOpenChange} />
           <TextField className="fieldItem" name="price" floatingLabelText="Pris" defaultValue={this.state.price} onChange={this.handleChange} />
+          <TextField className="fieldItem" name="img_url" floatingLabelText="Bilde URL" defaultValue={this.state.img_url} onChange={this.handleChange} />
           <div className="fieldToggleContainer">
             <div className="fieldToggle">
               <Toggle label="is Active" toggled={this.state.isActive} onToggle={this.toggleActive} />

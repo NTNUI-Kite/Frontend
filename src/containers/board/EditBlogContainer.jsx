@@ -78,6 +78,7 @@ class EditBlogContainer extends Component {
       title: post.title,
       abstract: post.abstract,
       date: createDate(post.date),
+      img_url: post.img_url,
       editorState,
       hasRecievedData: true,
     };
@@ -113,6 +114,7 @@ class EditBlogContainer extends Component {
       title: this.state.title,
       abstract: markup,
       date: dateToSQL(this.state.date),
+      img_url: this.state.img_url,
     };
     BoardActions.updatePost(body);
     this.setState({
@@ -136,6 +138,7 @@ class EditBlogContainer extends Component {
         <Paper className="fieldContainer">
           <TextField className="fieldItem" name="title" floatingLabelText="Tittel" defaultValue={this.state.title} onChange={this.handleChange} />
           <DatePicker className="fieldItem" name="date" floatingLabelText="Dato" mode="landscape" value={this.state.date} onChange={this.handleDateChange} />
+          <TextField className="fieldItem" name="img_url" floatingLabelText="Bilde URL" defaultValue={this.state.img_url} onChange={this.handleChange} />
         </Paper>
         <Paper className="editContainer">
           <EditView
