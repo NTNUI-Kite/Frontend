@@ -10,7 +10,7 @@ const createDate = (mysqlDate) => {
 const BlogEntry = props => (
   <Card className="blogEntry">
     <CardMedia overlay={<CardTitle title={props.title} subtitle={createDate(props.date).toDateString()} />}>
-      <img alt="logo" src="http://kitingbarbados.com/images/album/1.jpg" />
+      <img alt="logo" src={props.img_url} />
     </CardMedia>
     <CardText>
       <div dangerouslySetInnerHTML={{ __html: props.abstract }} />
