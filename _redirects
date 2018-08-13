@@ -1,4 +1,2 @@
-/home /
-
-# /api/*  http://api.ntnuikite.no/:splat  200
-# /arr /events
+/api/*  https://api.ntnuikite.no/:splat  200
+/*   /index.html   200
